@@ -1,4 +1,4 @@
-@extends('layouts.app') {{-- Asegúrate de que 'layouts.app' sea el nombre de tu plantilla base --}}
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -15,9 +15,13 @@
     </div>
 </div>
 
-{{-- Incluimos Chart.js desde un CDN para que no tengas que instalarlo manualmente --}}
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{{-- **IMPORTANTE:** Mueve estas líneas de script a la sección 'body_scripts' --}}
+@endsection
 
-{{-- Incluimos nuestro script personalizado para el gráfico --}}
-<script src="{{ asset('js/pokemonChart.js') }}"></script>
+@section('body_scripts') {{-- Esta es la sección donde deben ir los scripts --}}
+    {{-- Incluimos Chart.js desde un CDN --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    {{-- Incluimos nuestro script personalizado para el gráfico --}}
+    <script src="{{ asset('js/pokemonChart.js') }}"></script>
 @endsection
